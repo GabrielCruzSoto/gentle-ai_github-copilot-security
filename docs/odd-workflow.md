@@ -14,11 +14,14 @@ Especificación Previa ➔ TDD Estricto ➔ Revisión 4R y Recibos ➔ Unidad de
 
 ## 2. Ejecución Fase por Fase
 
-### Fase 1: Especificación (`odd/tasks/<funcionalidad>.md`)
+### Fase 1: Especificación y Ramificación GitFlow (`odd/tasks/<funcionalidad>.md`)
 1. Crear una tarea a partir de `odd/TEMPLATE.md`.
-2. Delimitar con precisión qué está dentro del alcance y qué queda explícitamente fuera.
-3. Especificar criterios de aceptación y controles negativos (entradas inválidas, fallos de red).
-4. Estimar el presupuesto de líneas modificadas (objetivo: ≤ 400 líneas).
+2. Crear la rama GitFlow correspondiente:
+   - Para nuevas funcionalidades: `git checkout -b feature/<id-tarea>-<slug> develop`
+   - Para incidentes de producción: `git checkout -b hotfix/<id-incidente>-<slug> main`
+3. Delimitar con precisión qué está dentro del alcance y qué queda explícitamente fuera.
+4. Especificar criterios de aceptación y controles negativos (entradas inválidas, fallos de red).
+5. Estimar el presupuesto de líneas modificadas (objetivo: ≤ 400 líneas).
 
 ### Fase 2: TDD Estricto
 1. **Rojo**: Escribir una prueba unitaria o de integración que compruebe el siguiente comportamiento.
@@ -32,8 +35,9 @@ Especificación Previa ➔ TDD Estricto ➔ Revisión 4R y Recibos ➔ Unidad de
 3. En caso de hallazgos `BLOCKER` o `CRITICAL`, ejecutar el verificador adversarial (`/review-refuter`).
 4. Resolver todos los bloqueadores confirmados antes de continuar.
 
-### Fase 4: Commit de Unidad de Trabajo
-1. Confirmar que las pruebas y la documentación estén preparadas junto al código.
+### Fase 4: Commit de Unidad de Trabajo y Pull Request GitFlow
+1. Confirmar que las pruebas y la documentación estén preparadas junto al código en la rama `feature/*`.
 2. Verificar que el total de líneas modificadas no exceda las 400 líneas.
 3. Ejecutar `/work-unit-commit` para estructurar el mensaje bajo Conventional Commits.
 4. Registrar los recibos de verificación finales y marcar la tarea como completada.
+5. Abrir Pull Request hacia `develop` (o hacia `main` + `develop` si es un `hotfix`). Consultar [Guía GitFlow](gitflow-workflow.md).

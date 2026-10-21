@@ -4,6 +4,7 @@
 - **Responsable**: <Desarrollador / Pareja>
 - **Presupuesto de Líneas**: ≤ 400 líneas modificadas
 - **Tarea o Ticket Base**: #<ID-Issue>
+- **Rama GitFlow**: `feature/<id-tarea>-<slug>` (Base: `develop`, Destino PR: `develop`)
 
 ---
 

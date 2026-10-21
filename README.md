@@ -42,6 +42,7 @@ gentle-ai-copilot/
 ├── docs/
 │   ├── architecture.md                  # Arquitectura del sistema y principios rectores
 │   ├── banking-environment.md           # Guía de cumplimiento y seguridad en redes bancarias
+│   ├── gitflow-workflow.md              # Flujo de trabajo GitFlow para banca y Copilot
 │   ├── vscode-copilot-setup.md          # Guía paso a paso de configuración en VS Code
 │   ├── odd-workflow.md                  # Manual del ciclo de desarrollo ODD
 │   └── review-receipts-guide.md         # Modelo de revisión 4R y evidencias
@@ -55,8 +56,9 @@ gentle-ai-copilot/
 
 1. Copiar las carpetas `.github/`, `odd/` y el archivo `AGENTS.md` a la raíz de tu proyecto bancario.
 2. Abrir el proyecto en VS Code con GitHub Copilot habilitado.
-3. Abrir GitHub Copilot Chat y escribir `/` para acceder a los prompts especializados:
-   - Ejecutar `/odd-spec` para definir la funcionalidad antes de programar.
+3. Asegurarse de que el repositorio cuenta con ramas `main` y `develop` (modelo **GitFlow**).
+4. Abrir GitHub Copilot Chat y escribir `/` para acceder a los prompts especializados:
+   - Ejecutar `/odd-spec` para definir la funcionalidad y crear la rama `feature/*` desde `develop`.
    - Ejecutar `/tdd-cycle` para implementar con disciplina de pruebas previas.
    - Ejecutar `/review-4r` para auditar los cambios y generar un registro de evidencias.
    - Ejecutar `/banking-security` para validar normas financieras y prevención de fugas de datos.
@@ -68,6 +70,7 @@ gentle-ai-copilot/
 
 - [Visión General de Arquitectura](docs/architecture.md)
 - [Cumplimiento y Seguridad Bancaria](docs/banking-environment.md)
+- [Flujo GitFlow en Banca](docs/gitflow-workflow.md)
 - [Guía de Configuración en VS Code](docs/vscode-copilot-setup.md)
 - [Manual del Flujo ODD](docs/odd-workflow.md)
 - [Framework de Revisión 4R](docs/review-receipts-guide.md)

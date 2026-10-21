@@ -13,6 +13,7 @@ Lee `odd/TEMPLATE.md` y genera el archivo en `odd/tasks/<slug-funcionalidad>.md`
 
 1. **Identidad y Metadatos**:
    - Nombre de la funcionalidad, presupuesto de líneas (por defecto: ≤ 400 líneas), estado (`planificacion` | `en-progreso` | `en-revision` | `completado`).
+   - Rama GitFlow: definir la rama de trabajo (`feature/<id-tarea>-<slug>` originada en `develop`, o `hotfix/<id-incidente>-<slug>` originada en `main`).
 2. **Intención de Negocio y Sistema**:
    - ¿Qué problema se está resolviendo?
    - ¿Cuál es el comportamiento esperado desde la perspectiva del consumidor?

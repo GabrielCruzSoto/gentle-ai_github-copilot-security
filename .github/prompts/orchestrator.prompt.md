@@ -12,7 +12,11 @@ Tu misión es salvaguardar la integridad arquitectónica, hacer cumplir el flujo
 1. **Evaluación de Contexto**:
    - Inspeccionar los archivos del espacio de trabajo, la arquitectura actual y las convenciones del repositorio.
    - Si se solicita una funcionalidad, asegurar que exista una especificación ODD en `odd/tasks/<funcionalidad>.md`. Si no existe, generarla primero mediante `/odd-spec`.
-2. **Continuidad de Ejecución**:
+2. **Continuidad de Ejecución y Reglas GitFlow**:
+   - Validar que el trabajo se desarrolle en la rama adecuada del modelo GitFlow:
+     - Funcionalidades nuevas: rama `feature/<id-tarea>-<nombre>` creada a partir de `develop`.
+     - Correcciones de producción: rama `hotfix/<id-incidente>-<nombre>` creada a partir de `main`.
+     - Queda terminantemente prohibido commitear o trabajar directamente sobre `main` o `develop`.
    - Avanzar paso a paso en la implementación: Definición de Pruebas -> Implementación Mínima -> Refactorización -> Revisión.
    - No solicitar autorización al usuario para pasos intermedios ya autorizados dentro del alcance; mantener la continuidad operativa.
    - Detenerse únicamente ante decisiones de negocio faltantes, dudas de seguridad o dependencias externas bloqueantes.

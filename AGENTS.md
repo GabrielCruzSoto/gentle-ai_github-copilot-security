@@ -26,7 +26,7 @@ Antes de realizar tareas especializadas, consultar la habilidad correspondiente:
 | Habilidad | Ruta | Disparador de Activación |
 |---|---|---|
 | `work-unit-commits` | `skills/work-unit-commits/SKILL.md` | Dimensionamiento de commits, conventional commits, empaquetado de cambios |
-| `branch-pr` | `skills/branch-pr/SKILL.md` | Creación de ramas, redacción de PRs, trazabilidad de auditoría |
+| `branch-pr` | `skills/branch-pr/SKILL.md` | Creación de ramas GitFlow (feature, release, hotfix), redacción de PRs, trazabilidad de auditoría |
 | `chained-pr` | `skills/chained-pr/SKILL.md` | División de funcionalidades grandes (>400 líneas) en PRs encadenados |
 | `cognitive-doc-design` | `skills/cognitive-doc-design/SKILL.md` | Redacción de documentación técnica escaneable y de alta densidad |
 | `comment-writer` | `skills/comment-writer/SKILL.md` | Redacción de comentarios explicativos de arquitectura y feedback de revisión |

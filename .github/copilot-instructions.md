@@ -64,7 +64,23 @@ Toda funcionalidad o refactorización significativa debe seguir el **Ciclo ODD**
 
 ---
 
-## 4. Restricciones de Seguridad Bancaria y Corporativa
+## 4. Reglas de Ramificación y Flujo Git (GitFlow Obligatorio)
+
+Todo desarrollo debe ceñirse estrictamente al modelo **GitFlow**:
+
+1. **Ramas Principales Permanentes**:
+   - `main`: Refleja el código en producción. Solo recibe fusiones desde ramas `release/*` o `hotfix/*`. Cada fusión a `main` debe llevar un tag de versión (`vX.Y.Z`).
+   - `develop`: Rama principal de integración para el siguiente lanzamiento. Contiene las funcionalidades finalizadas que superaron pruebas.
+2. **Ramas de Soporte Temporales**:
+   - `feature/<id-tarea>-<nombre>`: Se bifurca desde `develop` para implementar una especificación ODD. Se fusiona de vuelta a `develop` mediante Pull Request tras superar la revisión 4R.
+   - `release/<version>`: Se bifurca desde `develop` cuando las funcionalidades del ciclo están completas. Se utiliza para auditoría 4R final, pruebas de regresión y ajustes menores. Al finalizar, se fusiona a `main` (con tag) y a `develop`.
+   - `hotfix/<id-incidente>-<nombre>`: Se bifurca exclusivamente desde `main` para resolver errores críticos en producción. Tras validarse con TDD y revisión, se fusiona a `main` (con nuevo tag patch) y a `develop`.
+3. **Prohibición de Commits Directos**:
+   - Está prohibido hacer commits directos sobre `main` o `develop`. Todo cambio ingresa a través de una rama de soporte mediante Pull Request verificado.
+
+---
+
+## 5. Restricciones de Seguridad Bancaria y Corporativa
 
 Al operar dentro de un entorno bancario restringido:
 - **Cero Secretos**: Nunca incluir credenciales, tokens, cadenas de conexión o claves privadas en código o prompts.
