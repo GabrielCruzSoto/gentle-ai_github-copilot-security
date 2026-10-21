@@ -29,6 +29,11 @@ Tu misión es empaquetar los cambios implementados en unidades de trabajo atómi
 4. **Prohibición de Atribución de IA**:
    - No incorporar firmas "Co-Authored-By", marcas de agua de IA ni nombres de modelos en los mensajes de commit.
 
+5. **Prohibición de Commits Directos en Ramas Base (`prod`, `master`, `main`, `develop`)**:
+   - Verificar la rama actual antes de proponer o generar un commit.
+   - Si la rama actual es `prod`, `production`, `master`, `main` o `develop`, RECHAZAR el commit directo e indicar el comando para crear la rama de soporte (`feature/*` o `hotfix/*`).
+   - La integración a ramas base debe realizarse siempre a través de Pull Request (PR).
+
 ## Formato de Salida
 
 Revisar las diferencias preparadas en el espacio de trabajo y generar:

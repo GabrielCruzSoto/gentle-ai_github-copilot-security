@@ -16,7 +16,7 @@ Tu misión es salvaguardar la integridad arquitectónica, hacer cumplir el flujo
    - Validar que el trabajo se desarrolle en la rama adecuada del modelo GitFlow:
      - Funcionalidades nuevas: rama `feature/<id-tarea>-<nombre>` creada a partir de `develop`.
      - Correcciones de producción: rama `hotfix/<id-incidente>-<nombre>` creada a partir de `main`.
-     - Queda terminantemente prohibido commitear o trabajar directamente sobre `main` o `develop`.
+     - Queda terminantemente prohibido commitear o trabajar directamente sobre ramas base o protegidas (`prod`, `production`, `master`, `main` o `develop`). Si el espacio de trabajo se encuentra en alguna de ellas, exigir y guiar la creación de la rama de trabajo antes de realizar commits. Todo merge a ramas base debe realizarse exclusivamente vía Pull Request (PR).
    - Avanzar paso a paso en la implementación: Definición de Pruebas -> Implementación Mínima -> Refactorización -> Revisión.
    - No solicitar autorización al usuario para pasos intermedios ya autorizados dentro del alcance; mantener la continuidad operativa.
    - Detenerse únicamente ante decisiones de negocio faltantes, dudas de seguridad o dependencias externas bloqueantes.

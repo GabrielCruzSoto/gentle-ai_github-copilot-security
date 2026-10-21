@@ -25,12 +25,16 @@ feature           ●──────● (feat/A)     \                       
                                          ●───────────────────────────────● (release/1.1.0)
 ```
 
-### Ramas Principales (Permanentes)
+### Ramas Principales (Permanentes y Protegidas)
+
+> [!CAUTION]
+> **Prohibición Total de Commits Directos:**
+> Queda terminantemente prohibido realizar commits directos o push a las ramas `prod`, `production`, `master`, `main` o `develop`. Todo cambio, sin excepción, debe ingresar mediante un **Pull Request (PR)** verificado por pruebas y aprobado tras la revisión 4R.
 
 | Rama | Propósito | Reglas |
 |---|---|---|
-| `main` | Código en producción oficial | Cero commits directos. Solo recibe fusiones de `release/*` y `hotfix/*`. Cada merge genera un tag (`vX.Y.Z`). |
-| `develop` | Integración continua de features | Cero commits directos. Base de partida para `feature/*` y `release/*`. Recibe fusiones de `feature/*`, `release/*` y `hotfix/*`. |
+| `main` / `master` / `prod` | Código en producción oficial | **CERO COMMITS DIRECTOS**. Solo recibe fusiones de `release/*` y `hotfix/*` mediante Pull Request. Cada merge genera un tag (`vX.Y.Z`). |
+| `develop` | Integración continua de features | **CERO COMMITS DIRECTOS**. Base de partida para `feature/*` y `release/*`. Recibe fusiones de `feature/*` exclusivamente vía Pull Request. |
 
 ---
 

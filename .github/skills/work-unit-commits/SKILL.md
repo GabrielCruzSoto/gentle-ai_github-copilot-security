@@ -28,3 +28,6 @@ Cargar esta habilidad al decidir cómo estructurar, dividir o empaquetar commits
    - Utilizar resúmenes directos en modo imperativo.
 5. **Cero Atribución de IA**:
    - Nunca inyectar banners generados por IA, cláusulas "Co-Authored-By" o firmas de herramientas en los commits.
+6. **Prohibición Absoluta de Commits en Ramas Base (`prod`, `master`, `main`, `develop`)**:
+   - Jamás realizar commits directos sobre ramas protegidas (`prod`, `production`, `master`, `main`, `develop`).
+   - Todo commit debe efectuarse en una rama de soporte temporal (`feature/*`, `hotfix/*`, `release/*`) y fusionarse únicamente a través de un Pull Request (PR) aprobado.

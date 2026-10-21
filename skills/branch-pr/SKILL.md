@@ -32,9 +32,9 @@ feature          ●───────● (feat/A)      \                    
 
 ## Reglas Obligatorias de Ramificación
 
-1. **Ramas Principales Permanentes**:
-   - `main`: Código en producción. Cero commits directos. Solo recibe merges de `release/*` y `hotfix/*`. Siempre lleva tags anotados (`vX.Y.Z`).
-   - `develop`: Rama de integración activa. Cero commits directos. Base de partida para todas las ramas `feature/*` y `release/*`.
+1. **Ramas Principales y Protegidas (`prod`, `master`, `main`, `develop`)**:
+   - `prod` / `master` / `main`: Código oficial en producción. **CERO COMMITS DIRECTOS**. Queda terminantemente prohibido hacer commit o push directo a estas ramas. Toda incorporación debe efectuarse obligatoriamente mediante Pull Request (PR) aprobado tras superar la revisión 4R. Siempre lleva tags anotados (`vX.Y.Z`).
+   - `develop`: Rama de integración activa. Cero commits directos. Toda funcionalidad ingresa mediante PR desde ramas `feature/*`. Base de partida para `feature/*` y `release/*`.
 
 2. **Ramas Temporales y Convenciones de Nombres**:
    - **Funcionalidades (`feature/`)**:

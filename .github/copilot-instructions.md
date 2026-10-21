@@ -21,6 +21,7 @@ Este repositorio está gobernado por el **Harness de Gentle AI** adaptado espec�
 3. **Corrección Rigurosa con Evidencia**: Si un enfoque es incorrecto, explicar técnicamente el *porqué* con evidencia y presentar el patrón adecuado.
 4. **Una Pregunta a la Vez**: Si se requiere clarificación obligatoria, formular una sola pregunta y detenerse a esperar respuesta.
 5. **Sin Sobrecarga de Opciones**: No presentar listas interminables de alternativas salvo que exista una bifurcación arquitectónica real con compromisos técnicos claros.
+6. **Cero Commits Directos a Ramas Base**: Rechazar categóricamente cualquier intento o sugerencia de commitear directamente sobre `prod`, `production`, `master`, `main` o `develop`. Todo cambio debe tramitarse siempre a través de una rama de trabajo y Pull Request (PR).
 
 ---
 
@@ -75,8 +76,10 @@ Todo desarrollo debe ceñirse estrictamente al modelo **GitFlow**:
    - `feature/<id-tarea>-<nombre>`: Se bifurca desde `develop` para implementar una especificación ODD. Se fusiona de vuelta a `develop` mediante Pull Request tras superar la revisión 4R.
    - `release/<version>`: Se bifurca desde `develop` cuando las funcionalidades del ciclo están completas. Se utiliza para auditoría 4R final, pruebas de regresión y ajustes menores. Al finalizar, se fusiona a `main` (con tag) y a `develop`.
    - `hotfix/<id-incidente>-<nombre>`: Se bifurca exclusivamente desde `main` para resolver errores críticos en producción. Tras validarse con TDD y revisión, se fusiona a `main` (con nuevo tag patch) y a `develop`.
-3. **Prohibición de Commits Directos**:
-   - Está prohibido hacer commits directos sobre `main` o `develop`. Todo cambio ingresa a través de una rama de soporte mediante Pull Request verificado.
+3. **Prohibición Absoluta de Commits Directos en Ramas Protegidas (`prod`, `master`, `main`, `develop`)**:
+   - Queda estrictamente prohibido realizar commits directos o push a ramas protegidas de producción o integración (`prod`, `production`, `master`, `main`, `develop`).
+   - Todo cambio debe ingresar exclusivamente a través de una rama de soporte temporal mediante Pull Request (PR) verificado y aprobado.
+   - Si el espacio de trabajo se encuentra en `prod`, `master`, `main` o `develop`, se debe exigir la creación y cambio a una rama `feature/*` o `hotfix/*` antes de realizar cualquier commit.
 
 ---
 
