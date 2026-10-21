@@ -1,39 +1,39 @@
-# Organic Driven Development (ODD) Workflow Manual
+# Manual de Flujo de Trabajo: Desarrollo Guiado Orgánico (ODD)
 
-## 1. What is ODD?
+## 1. ¿Qué es ODD?
 
-**Organic Driven Development (ODD)** is a deterministic engineering workflow designed to prevent AI-generated architectural rot, uncontrolled scope creep, and unverified assumptions.
+El **Desarrollo Guiado Orgánico (ODD - Organic Driven Development)** es un flujo de ingeniería determinista creado para prevenir la degradación arquitectónica, el desvío de alcance y las asunciones no comprobadas generadas comúnmente por asistentes de IA.
 
-In standard AI-assisted coding, models jump straight into generating speculative code, accumulating tech debt and hallucinated fixes. ODD forces a disciplined rhythm:
+En el desarrollo asistido por IA habitual, los modelos generan código especulativo de forma apresurada, acumulando deuda técnica. ODD impone un ritmo estructurado:
 
 ```
-Spec First ➔ Strict TDD ➔ 4R Review & Receipts ➔ Atomic Work Unit
+Especificación Previa ➔ TDD Estricto ➔ Revisión 4R y Recibos ➔ Unidad de Trabajo Atómica
 ```
 
 ---
 
-## 2. Phase-by-Phase Execution
+## 2. Ejecución Fase por Fase
 
-### Phase 1: Specification (`odd/tasks/<feature>.md`)
-1. Create a new task file from `odd/TEMPLATE.md`.
-2. Define the exact boundary of what is in scope and what is explicitly out of scope.
-3. List acceptance criteria, including negative controls (failure cases, invalid inputs).
-4. Estimate total changed lines (budget: ≤ 400 lines).
+### Fase 1: Especificación (`odd/tasks/<funcionalidad>.md`)
+1. Crear una tarea a partir de `odd/TEMPLATE.md`.
+2. Delimitar con precisión qué está dentro del alcance y qué queda explícitamente fuera.
+3. Especificar criterios de aceptación y controles negativos (entradas inválidas, fallos de red).
+4. Estimar el presupuesto de líneas modificadas (objetivo: ≤ 400 líneas).
 
-### Phase 2: Strict Test-Driven Development (TDD)
-1. **Red**: Write a test asserting the single next behavior.
-2. **Green**: Write the minimal code to satisfy the assertion.
-3. **Refactor**: Clean up the design while keeping tests green.
-4. Update the task checklist in `odd/tasks/<feature>.md`.
+### Fase 2: TDD Estricto
+1. **Rojo**: Escribir una prueba unitaria o de integración que compruebe el siguiente comportamiento.
+2. **Verde**: Escribir el código estrictamente indispensable para que la prueba sea exitosa.
+3. **Refactorización**: Optimizar el diseño sin alterar el comportamiento observable.
+4. Actualizar la lista de tareas en `odd/tasks/<funcionalidad>.md`.
 
-### Phase 3: Evidence & 4R Review (`odd/evidence/<feature>.md`)
-1. Execute the 4R review lens (`/review-4r`).
-2. Document all findings in the evidence ledger.
-3. If any findings are rated `BLOCKER` or `CRITICAL`, run the adversarial refuter (`/review-refuter`).
-4. Resolve all confirmed blockers before proceeding.
+### Fase 3: Evidencia y Revisión 4R (`odd/evidence/<funcionalidad>.md`)
+1. Ejecutar el barrido de revisión 4R (`/review-4r`).
+2. Documentar los hallazgos en el registro de evidencias.
+3. En caso de hallazgos `BLOCKER` o `CRITICAL`, ejecutar el verificador adversarial (`/review-refuter`).
+4. Resolver todos los bloqueadores confirmados antes de continuar.
 
-### Phase 4: Atomic Work Unit Commit
-1. Ensure tests and docs are staged with the code.
-2. Confirm the line count is under 400 lines.
-3. Use `/work-unit-commit` to format a standard Conventional Commit.
-4. Record the final receipts in the task file and mark the task as `completed`.
+### Fase 4: Commit de Unidad de Trabajo
+1. Confirmar que las pruebas y la documentación estén preparadas junto al código.
+2. Verificar que el total de líneas modificadas no exceda las 400 líneas.
+3. Ejecutar `/work-unit-commit` para estructurar el mensaje bajo Conventional Commits.
+4. Registrar los recibos de verificación finales y marcar la tarea como completada.

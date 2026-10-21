@@ -1,28 +1,28 @@
 ---
 name: systemic-issue-triage
-description: "Triage defect backlogs by root classes rather than individual symptoms. Trigger: bug triage, backlog grooming, defect clustering."
+description: "Clasificar errores por causa estructural en lugar de parches sintomáticos individuales. Disparador: triaje de bugs, gestión de backlog."
 license: Apache-2.0
 metadata:
   author: gentle-ai-copilot
   version: "1.0"
 ---
 
-# Systemic Issue Triage Skill
+# Habilidad: Triaje Sistémico de Errores
 
-## When to Use
+## Cuándo Usar
 
-Load this skill when triaging incoming bug reports or managing a defect backlog. The goal is to prevent symptom patching and avoid architectural bloat.
+Cargar esta habilidad al clasificar reportes de errores entrantes o gestionar el backlog de defectos, con el objetivo de evitar la acumulación de parches dispersos que degraden la arquitectura.
 
-## Hard Rules
+## Reglas Obligatorias
 
-1. **Cluster by Structural Invariant**:
-   - Do not fix 10 similar bugs with 10 separate patches.
-   - Group defects by the underlying architectural invariant that failed (e.g. session lifecycle, currency rounding, authorization header propagation).
-2. **One Root Fix Closes the Cluster**:
-   - Design a single structural correction that closes the entire cluster of symptoms.
-   - Write automated tests proving every symptom in the cluster is eradicated.
-3. **Classification Taxonomy**:
-   - `Superceded`: Bug rendered obsolete by upcoming design changes.
-   - `Duplicate`: Belongs to an existing tracked cluster.
-   - `Systemic Defect`: Real bug belonging to a structural invariant failure.
-   - `Incomplete`: Insufficient details from reporter; clarify before coding.
+1. **Agrupación por Invariante Estructural**:
+   - No implementar diez parches individuales para diez síntomas que comparten el mismo fallo de diseño subyacente.
+   - Agrupar los defectos según el invariante arquitectónico vulnerado (ciclo de vida de sesión, redondeo monetario, propagación de contexto de autorización).
+2. **Una Solución Raíz Cierra el Conjunto**:
+   - Diseñar una única modificación estructural que erradique todos los síntomas del grupo.
+   - Desarrollar pruebas automatizadas que demuestren la desaparición de cada síntoma agrupado.
+3. **Taxonomía de Clasificación**:
+   - `Superado`: Error que pierde vigencia ante un rediseño en desarrollo.
+   - `Duplicado`: Corresponde a un grupo estructural ya registrado.
+   - `Defecto Sistémico`: Fallo real derivado de una ruptura de invariante.
+   - `Incompleto`: Información insuficiente del reportador; clarificar antes de codificar.

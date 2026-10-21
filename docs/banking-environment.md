@@ -1,25 +1,25 @@
-# Banking & Restricted Enterprise Compliance Guide
+# Guía de Cumplimiento Bancario y Entornos Corporativos Restringidos
 
-## 1. Why Banking Environments Restrict External Tools
+## 1. Por qué los Entornos Bancarios Restringen Herramientas Externas
 
-Financial institutions and banks enforce strict information security policies:
-- **No Unvetted Binaries**: Executables without code signing or security committee approval cannot run on workstations.
-- **Strict Network Egress (Airgaps / Firewalls)**: Workstations cannot open arbitrary socket connections or talk to unauthorized external APIs.
-- **Zero Third-Party Daemons**: Background daemons (like local MCP servers or unapproved telemetry listeners) trigger endpoint detection alarms (EDR).
-- **Data Leakage Prevention (DLP)**: Source code, customer account numbers, and internal IP addresses must not leak outside authorized perimeter endpoints.
+Las entidades financieras aplican políticas estrictas de ciberseguridad:
+- **Prohibición de Binarios no Homologados**: Ningún ejecutable sin firma de código institucional o aprobación expresa puede correr en estaciones de trabajo.
+- **Restricción Estricta de Tráfico Saliente (Firewalls / Redes Aisladas)**: Los equipos no pueden abrir conexiones arbitrarias ni invocar APIs externas no autorizadas.
+- **Cero Daemons en Segundo Plano**: Procesos residentes locales (como servidores MCP no homologados o listeners de telemetría) disparan alertas en las herramientas EDR (Endpoint Detection & Response).
+- **Prevención de Fuga de Datos (DLP)**: El código fuente, datos de clientes y esquemas internos no deben salir del perímetro corporativo.
 
-## 2. How Gentle AI Copilot Solves These Constraints
+## 2. Cómo Resuelve Gentle AI Copilot Estas Restricciones
 
-`gentle-ai-copilot` is designed from the ground up for strict zero-trust corporate environments:
+`gentle-ai-copilot` está diseñado desde su concepción para operar en esquemas de Confianza Cero (Zero Trust):
 
-1. **Zero Binaries / Zero Scripts Required**:
-   Everything is expressed in standard Markdown, Git commits, and native `.github/` configuration files. There is no Go binary to compile, no npm daemon to run, and no Python virtual environment to maintain.
-2. **Native to VS Code & GitHub Copilot**:
-   GitHub Copilot is typically the officially vetted and contracted enterprise AI assistant in corporate IT. `gentle-ai-copilot` uses Copilot's built-in instruction and prompt engine (`.github/copilot-instructions.md` and `.github/prompts/`), requiring zero additional extensions.
-3. **Data Stays in the Repository**:
-   All architectural memory, task statuses, review ledgers, and test receipts live directly inside the repository (`odd/tasks/`, `odd/evidence/`). No data is sent to external second-brain databases or third-party servers.
-4. **Enforced Financial Safety Invariants**:
-   Built-in prompts and skills actively monitor against:
-   - Floating-point arithmetic on currency values.
-   - PII/PCI exposure in error messages or logs.
-   - Missing authorization gates or missing idempotency keys on mutations.
+1. **Cero Binarios y Cero Scripts de Ejecución**:
+   Todo el sistema está estructurado en Markdown estándar, commits de Git e integraciones nativas de `.github/`. No hay binarios que compilar, daemons de Node que levantar ni entornos virtuales de Python que mantener.
+2. **Nativo para VS Code y GitHub Copilot**:
+   GitHub Copilot es habitualmente la herramienta de IA homologada corporativamente en las organizaciones. `gentle-ai-copilot` utiliza el motor nativo de instrucciones y prompts de Copilot (`.github/copilot-instructions.md` y `.github/prompts/`), sin requerir extensiones adicionales.
+3. **La Información Permanece en el Repositorio**:
+   La memoria arquitectónica, los estados de tarea, las revisiones y los recibos de prueba residen íntegramente dentro del repositorio (`odd/tasks/`, `odd/evidence/`). No se envía información a servidores o bases de datos externas.
+4. **Protección de Invariantes Financieros**:
+   Las habilidades y prompts integrados auditan continuamente:
+   - Prohibición de aritmética de coma flotante sobre dinero.
+   - Prevención de fuga de PII/PCI en logs y excepciones.
+   - Obligatoriedad de compuertas de autorización y cabeceras de idempotencia en mutaciones.

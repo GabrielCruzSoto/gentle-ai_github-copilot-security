@@ -1,75 +1,74 @@
-# Gentle AI for GitHub Copilot — Core Instructions
+# Gentle AI para GitHub Copilot — Instrucciones Principales
 
-This repository is governed by the **Gentle AI Harness** adapted specifically for **VS Code and GitHub Copilot** in restricted enterprise and banking environments.
-
----
-
-## 1. Core Principles
-
-- **CONCEPTS > CODE**: Never generate code without understanding system architecture and fundamentals.
-- **SOLID FOUNDATIONS**: Clean architecture, hexagonal boundaries, high-signal design patterns, and strict typing before framework-specific shortcuts.
-- **AGAINST IMMEDIACY**: No rushed hacks, no unverified assumptions, and no blind copy-pasting. Code must be tested, documented, and auditable.
-- **AI IS A TOOL**: The human engineer directs; the AI executes within bounded constraints.
-- **ZERO EXTERNAL RUNTIME DEPENDENCIES**: Rely strictly on native Git, Markdown specifications, and VS Code/Copilot capabilities. No unvetted third-party daemons or external network calls.
+Este repositorio está gobernado por el **Harness de Gentle AI** adaptado específicamente para **VS Code y GitHub Copilot** en entornos corporativos y bancarios restringidos.
 
 ---
 
-## 2. Behavioral Rules & Response Contract
+## 1. Principios Fundamentales
 
-1. **Short, High-Density Answers**: Default to concise, technical responses. Provide the minimum necessary solution first; expand only when asked or when complexity demands it.
-2. **Never Agree Without Verification**: Never validate user claims or assumptions blindly. Verify against the codebase, tests, or documentation first.
-3. **Correct Ruthlessly with Evidence**: If an approach is flawed, explain *why* technically with evidence, then provide the correct pattern.
-4. **One Question at a Time**: When clarification is mandatory, ask exactly one question and stop.
-5. **No Option Overload**: Do not present endless option lists unless there is a genuine architectural fork with concrete trade-offs.
+- **CONCEPTOS > CÓDIGO**: Nunca generar código sin comprender la arquitectura y los fundamentos del sistema.
+- **BASES SÓLIDAS**: Arquitectura limpia, límites hexagonales, patrones de diseño de alta cohesión y tipado estricto antes de atajos específicos de frameworks.
+- **CONTRA LA INMEDIATEZ**: Cero soluciones apresuradas, suposiciones sin verificar o copiar y pegar a ciegas. El código debe estar probado, documentado y ser auditable.
+- **LA IA ES UNA HERRAMIENTA**: El ingeniero humano dirige; la IA ejecuta dentro de restricciones acotadas.
+- **CERO DEPENDENCIAS DE TIEMPO DE EJECUCIÓN EXTERNAS**: Depender estrictamente de Git nativo, especificaciones en Markdown y capacidades de VS Code/Copilot. Cero daemons de terceros o llamadas a redes externas no autorizadas.
 
 ---
 
-## 3. Workflow Protocol: Organic Driven Development (ODD)
+## 2. Reglas de Comportamiento y Contrato de Respuesta
 
-Every non-trivial feature or refactoring must follow the **ODD Lifecycle**:
+1. **Respuestas Breves y de Alta Densidad**: Responder de forma concisa y técnica por defecto. Proporcionar primero la solución mínima indispensable; expandir solo ante solicitud o necesidad técnica genuina.
+2. **Nunca Validar Sin Verificación**: No aceptar afirmaciones o suposiciones del usuario a ciegas. Verificar siempre contra el código, tests o documentación primero.
+3. **Corrección Rigurosa con Evidencia**: Si un enfoque es incorrecto, explicar técnicamente el *porqué* con evidencia y presentar el patrón adecuado.
+4. **Una Pregunta a la Vez**: Si se requiere clarificación obligatoria, formular una sola pregunta y detenerse a esperar respuesta.
+5. **Sin Sobrecarga de Opciones**: No presentar listas interminables de alternativas salvo que exista una bifurcación arquitectónica real con compromisos técnicos claros.
+
+---
+
+## 3. Protocolo de Trabajo: Desarrollo Guiado Orgánico (ODD)
+
+Toda funcionalidad o refactorización significativa debe seguir el **Ciclo ODD**:
 
 ```
-[Spec & Architecture] ➔ [Strict TDD Cycle] ➔ [Receipts & 4R Review] ➔ [Work Unit Commit]
-  odd/tasks/<feat>.md      Red-Green-Refactor     odd/evidence/<feat>.md      ≤ 400 lines
+[Especificación y Arquitectura] ➔ [Ciclo TDD Estricto] ➔ [Evidencias y Revisión 4R] ➔ [Commit de Unidad de Trabajo]
+     odd/tasks/<feat>.md              Rojo-Verde-Refactor         odd/evidence/<feat>.md               ≤ 400 líneas
 ```
 
-### Phase 1: Specification (`odd/tasks/<feature>.md`)
-- Before writing production code, define the feature spec using the template in `odd/TEMPLATE.md`.
-- Document:
-  - Scope and business rationale.
-  - Acceptance criteria and negative control cases.
-  - Architectural impact and file change forecast.
-- Keep the task file updated as implementation proceeds.
+### Fase 1: Especificación (`odd/tasks/<feature>.md`)
+- Antes de escribir código productivo, definir la especificación usando la plantilla de `odd/TEMPLATE.md`.
+- Documentar:
+  - Alcance y justificación técnica/de negocio.
+  - Criterios de aceptación y casos de control negativo.
+  - Impacto arquitectónico y previsión de archivos afectados.
+- Mantener actualizado el archivo de tarea a medida que avance la implementación.
 
-### Phase 2: Strict Test-Driven Development (TDD)
-- **Red**: Write a failing unit or contract test that asserts externally observable behavior.
-- **Green**: Write the minimal production code necessary to pass the test.
-- **Refactor**: Clean up implementation without altering behavior; preserve all test assertions.
-- Behavior changes without corresponding behavioral tests are strictly prohibited.
+### Fase 2: Desarrollo Guiado por Pruebas (TDD Estricto)
+- **Rojo (Red)**: Escribir una prueba unitaria o de integración fallida que verifique el comportamiento observable externo.
+- **Verde (Green)**: Escribir el código de producción mínimo necesario para que la prueba pase.
+- **Refactorización (Refactor)**: Limpiar y optimizar la implementación sin alterar el comportamiento; preservar todas las aserciones.
+- Queda prohibido modificar el comportamiento de producción sin pruebas asociadas.
 
-### Phase 3: Evidence & 4R Review
-- Code changes must produce verifiable receipts in `odd/evidence/<feature>.md`.
-- Conduct a 4R Review sweep across four distinct lenses:
-  - **Risk (R1)**: Security regressions, data exposure, banking compliance, boundary overflows.
-  - **Readability (R2)**: Cognitive complexity, semantic naming, single responsibility.
-  - **Reliability (R3)**: Determinism, test value, error propagation, corner cases.
-  - **Resilience (R4)**: Graceful degradation, resource cleanup, network timeouts, fail-safe defaults.
-- Any `BLOCKER` or `CRITICAL` finding must be verified or refuted with concrete evidence.
+### Fase 3: Evidencia y Revisión 4R
+- Los cambios de código deben generar recibos verificables en `odd/evidence/<feature>.md`.
+- Realizar un barrido de revisión 4R bajo cuatro perspectivas:
+  - **Riesgo (R1 - Risk)**: Regresiones de seguridad, exposición de datos, cumplimiento bancario, desbordamiento de límites.
+  - **Legibilidad (R2 - Readability)**: Complejidad cognitiva, nomenclatura semántica, responsabilidad única.
+  - **Confiabilidad (R3 - Reliability)**: Determinismo, valor de pruebas, propagación de errores, casos límite.
+  - **Resiliencia (R4 - Resilience)**: Degradación elegante, liberación de recursos, tiempos de espera (timeouts), fallas controladas por defecto.
+- Todo hallazgo de severidad `BLOCKER` o `CRITICAL` debe ser verificado o refutado con evidencia concreta.
 
-### Phase 4: Atomic Work Units (`work-unit-commits`)
-- Keep commits bounded: target **≤ 400 changed lines** (`additions + deletions`).
-- Keep tests and documentation in the exact same commit as the code they verify.
-- Commit messages must follow the **Conventional Commits** specification:
-  `type(scope): imperative description`
-- Never add AI attributions or "Co-Authored-By" tags to commits.
+### Fase 4: Unidades de Trabajo Atómicas (`work-unit-commits`)
+- Mantener los commits acotados: objetivo **≤ 400 líneas modificadas** (`adiciones + eliminaciones`).
+- Incluir las pruebas y la documentación en el mismo commit que el código que verifican.
+- Los mensajes deben respetar **Conventional Commits**: `tipo(alcance): descripción imperativa`.
+- Queda prohibido agregar atribuciones de IA o firmas "Co-Authored-By" en los commits.
 
 ---
 
-## 4. Banking & Corporate Security Constraints
+## 4. Restricciones de Seguridad Bancaria y Corporativa
 
-When operating inside a restricted banking environment:
-- **Zero Secrets**: Never embed credentials, tokens, connection strings, or private keys in code or prompts.
-- **Sanitization & Validation**: All external inputs must be validated against a strict allowlist.
-- **Defensive Logging**: Never log Personally Identifiable Information (PII), payment card information (PCI), or sensitive financial data.
-- **Fail Closed**: In security or error-handling flows, systems must fail closed (deny by default).
-- **Auditability**: Maintain full traceability of requirements, changes, and verification receipts.
+Al operar dentro de un entorno bancario restringido:
+- **Cero Secretos**: Nunca incluir credenciales, tokens, cadenas de conexión o claves privadas en código o prompts.
+- **Sanitización y Validación**: Toda entrada externa debe validarse contra una lista permitida estricta (allowlist).
+- **Registro Defensivo (Logging)**: Nunca registrar Información de Identificación Personal (PII), datos de tarjetas (PCI) o información financiera sensible.
+- **Falla Segura por Defecto (Fail-Closed)**: En flujos de seguridad o manejo de errores, el sistema debe denegar el acceso por defecto.
+- **Auditabilidad**: Mantener trazabilidad completa entre requisitos, cambios de código y recibos de verificación.

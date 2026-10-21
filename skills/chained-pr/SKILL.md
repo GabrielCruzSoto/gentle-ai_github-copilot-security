@@ -1,31 +1,31 @@
 ---
 name: chained-pr
-description: "Split oversized changes (>400 lines) into chained/stacked PRs that protect review focus. Trigger: large features, stacked branches."
+description: "Dividir cambios grandes (>400 líneas) en PRs encadenados para proteger el foco de revisión. Disparador: funcionalidades extensas, ramas apiladas."
 license: Apache-2.0
 metadata:
   author: gentle-ai-copilot
   version: "1.0"
 ---
 
-# Chained Pull Requests Skill
+# Habilidad: PRs Encadenados (Chained PRs)
 
-## When to Use
+## Cuándo Usar
 
-Load this skill when a feature's scope or file forecast exceeds the 400-line budget, or when a large architectural migration must be delivered incrementally without breaking `main`.
+Cargar esta habilidad cuando la magnitud de una funcionalidad exceda el presupuesto de 400 líneas o cuando una migración arquitectónica importante deba entregarse incrementalmente sin romper la rama principal.
 
-## Hard Rules
+## Reglas Obligatorias
 
-1. **Slice by Domain Boundary, Not by Layer**:
-   - Do not slice purely by horizontal layers (e.g. PR 1: all DB models, PR 2: all services, PR 3: all controllers).
-   - Slice vertically by end-to-end usable sub-capabilities whenever possible, or by stable underlying contract followed by consumer implementation.
-2. **Reviewable in ≤ 45 Minutes**:
-   - Each PR in the chain must be small enough for a human reviewer to inspect with full mental focus in under 45 minutes.
-3. **Explicit Dependency Mapping**:
-   - Each chained PR must document its parent and child branches in its description:
+1. **División por Límites de Dominio, no por Capas Horizontales**:
+   - Evitar dividir por capas técnicas (ej. PR 1: solo tablas/modelos, PR 2: solo servicios, PR 3: solo controladores).
+   - Dividir verticalmente por sub-capacidades funcionales completas o primero por contratos/interfaces estables seguidos de su implementación concreta.
+2. **Revisable en ≤ 45 Minutos**:
+   - Cada PR de la cadena debe ser lo bastante reducido como para que un revisor humano pueda auditarlo con máxima concentración en menos de 45 minutos.
+3. **Mapeo Explícito de Dependencias**:
+   - Cada PR encadenado debe detallar en su descripción sus ramas dependientes:
      ```
-     [Parent PR #101] ➔ [Current PR #102 📍] ➔ [Next PR #103]
+     [PR Base #101] ➔ [PR Actual #102 📍] ➔ [Siguiente PR #103]
      ```
-4. **Target Branching**:
-   - PR #1 targets `main`.
-   - PR #2 targets branch #1.
-   - When PR #1 merges, rebase/retarget PR #2 to `main`.
+4. **Estrategia de Destino de Ramas**:
+   - El PR #1 apunta a `main`.
+   - El PR #2 apunta a la rama del PR #1.
+   - Cuando el PR #1 se fusione, rebasar/reorientar el PR #2 hacia `main`.

@@ -1,22 +1,22 @@
-# VS Code + GitHub Copilot Setup Guide
+# Guía de Configuración: VS Code + GitHub Copilot
 
-This guide explains how to enable and use `gentle-ai-copilot` in Visual Studio Code.
-
----
-
-## 1. Prerequisites
-
-- Visual Studio Code (v1.90 or newer).
-- GitHub Copilot and GitHub Copilot Chat extensions installed and authenticated with your corporate/enterprise account.
-- No other extensions or CLI tools are required.
+Esta guía detalla los pasos para habilitar y operar con `gentle-ai-copilot` en Visual Studio Code.
 
 ---
 
-## 2. Incorporating into a Project
+## 1. Requisitos Previos
 
-To apply `gentle-ai-copilot` to an existing or new project within the bank:
+- Visual Studio Code (v1.90 o superior).
+- Extensiones oficiales de GitHub Copilot y GitHub Copilot Chat instaladas y autenticadas con la cuenta corporativa.
+- No se requiere ninguna otra extensión ni herramienta de línea de comandos.
 
-1. Copy the following directories into the root of your project:
+---
+
+## 2. Incorporación a un Proyecto
+
+Para aplicar `gentle-ai-copilot` a un repositorio nuevo o existente dentro de la red corporativa:
+
+1. Copiar los siguientes directorios y archivos a la raíz del proyecto:
    ```
    .github/
    ├── copilot-instructions.md
@@ -28,23 +28,23 @@ To apply `gentle-ai-copilot` to an existing or new project within the bank:
    └── evidence/
    AGENTS.md
    ```
-2. Open the project in VS Code.
+2. Abrir el proyecto en VS Code.
 
 ---
 
-## 3. How Copilot Loads the Configuration
+## 3. Carga Automática en Copilot
 
-- **Global Repository Instructions**:
-  VS Code Copilot automatically discovers `.github/copilot-instructions.md`. Every query in Copilot Chat and every inline completion will respect the architectural principles, response length rules, and security constraints.
-- **Prompt Files (`.prompt.md`)**:
-  Prompt files located in `.github/prompts/` appear as executable prompts in the Copilot Chat interface.
-  - In Copilot Chat, type `/` or click the prompt icon to run prompts such as:
-    - `/orchestrator` — Start an architectural feature plan.
-    - `/odd-spec` — Formulate a task spec in `odd/tasks/`.
-    - `/tdd-cycle` — Run a Red-Green-Refactor implementation step.
-    - `/review-4r` — Run a 4R review ledger over current changes.
-    - `/review-refuter` — Challenge and verify blocker findings.
-    - `/banking-security` — Audit against banking security invariants.
-    - `/work-unit-commit` — Generate conventional commit message under 400 lines.
-- **Skills (`skills/` & `.github/skills/`)**:
-  Refer to specific skills in Copilot Chat using `#file` (e.g. `#file:skills/work-unit-commits/SKILL.md`) or ask Copilot to consult the skill index in `AGENTS.md`.
+- **Instrucciones Globales del Repositorio**:
+  VS Code Copilot detecta automáticamente `.github/copilot-instructions.md`. Cualquier consulta en Copilot Chat o autocompletado inline respetará los principios arquitectónicos, el límite de líneas y las reglas de seguridad bancaria.
+- **Archivos de Prompt (`.prompt.md`)**:
+  Los prompts ubicados en `.github/prompts/` quedan accesibles interactivamente en Copilot Chat:
+  - En Copilot Chat, escribir `/` o pulsar el selector de prompts para ejecutar:
+    - `/orchestrator` — Iniciar la planificación y orquestación arquitectónica.
+    - `/odd-spec` — Redactar una especificación técnica en `odd/tasks/`.
+    - `/tdd-cycle` — Desarrollar bajo la disciplina estricta Rojo-Verde-Refactor.
+    - `/review-4r` — Ejecutar el barrido de revisión 4R sobre los cambios actuales.
+    - `/review-refuter` — Auditar y verificar hallazgos críticos con contra-evidencia.
+    - `/banking-security` — Realizar auditoría de seguridad y cumplimiento financiero.
+    - `/work-unit-commit` — Generar el commit convencional atómico bajo 400 líneas.
+- **Habilidades (`skills/` y `.github/skills/`)**:
+  Se puede invocar cualquier habilidad en Copilot Chat haciendo referencia a su archivo mediante `#file` (ej. `#file:skills/work-unit-commits/SKILL.md`) o solicitando consultar el índice de `AGENTS.md`.

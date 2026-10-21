@@ -1,73 +1,73 @@
 # gentle-ai-copilot
 
-> **Deterministic Harness for VS Code + GitHub Copilot in Restricted Enterprise & Banking Environments**
+> **Harness determinista para VS Code + GitHub Copilot en entornos corporativos y bancarios restringidos**
 
-`gentle-ai-copilot` packages the core architecture, workflow discipline, and review mechanisms of **Gentle AI** into a **zero-third-party-tool, zero-binary, purely declarative configuration** tailored specifically for Visual Studio Code and GitHub Copilot.
-
----
-
-## 🏛️ Built for Restricted Banking Environments
-
-In financial institutions and regulated corporate networks, unapproved binaries, external MCP servers, background node/python daemons, and outbound cloud calls to third-party AI tools are strictly forbidden.
-
-`gentle-ai-copilot` delivers complete engineering rigor using **only**:
-- Native GitHub Copilot instructions (`.github/copilot-instructions.md`).
-- Native VS Code prompt files (`.github/prompts/*.prompt.md`).
-- Standard Markdown skills (`skills/*/SKILL.md`).
-- Git-backed Organic Driven Development (`odd/tasks/` and `odd/evidence/`).
-
-No installations. No external binaries. No security alarms.
+`gentle-ai-copilot` traslada la arquitectura, la disciplina de flujo de trabajo y los mecanismos de revisión de **Gentle AI** a una **configuración puramente declarativa, sin binarios ni herramientas de terceros**, diseñada específicamente para Visual Studio Code y GitHub Copilot.
 
 ---
 
-## 📦 What's Inside
+## 🏛️ Diseñado para Entornos Bancarios Restringidos
+
+En entidades financieras y redes corporativas reguladas, está terminantemente prohibido ejecutar binarios no autorizados, levantar servidores MCP locales, iniciar daemons en segundo plano o realizar llamadas salientes a servicios de IA de terceros.
+
+`gentle-ai-copilot` ofrece el máximo rigor de ingeniería utilizando **exclusivamente**:
+- Instrucciones nativas de GitHub Copilot (`.github/copilot-instructions.md`).
+- Archivos de prompt nativos de VS Code (`.github/prompts/*.prompt.md`).
+- Habilidades estandarizadas en Markdown (`skills/*/SKILL.md`).
+- Flujo de Desarrollo Guiado Orgánico respaldado por Git (`odd/tasks/` y `odd/evidence/`).
+
+Cero instalaciones de software. Cero binarios ajenos. Cero alertas de seguridad.
+
+---
+
+## 📦 Contenido del Repositorio
 
 ```
 gentle-ai-copilot/
 ├── .github/
-│   ├── copilot-instructions.md          # Global rules, response contract, security invariants
-│   ├── prompts/                         # VS Code Copilot prompt files (custom roles)
-│   │   ├── orchestrator.prompt.md       # Master orchestrator
-│   │   ├── odd-spec.prompt.md           # Feature specification writer
-│   │   ├── tdd-cycle.prompt.md          # Strict TDD enforcer
-│   │   ├── review-4r.prompt.md          # 4R review sweep (Risk, Readability, Reliability, Resilience)
-│   │   ├── review-refuter.prompt.md     # Adversarial verifier of blocker findings
-│   │   ├── banking-security.prompt.md   # Banking security & OWASP audit
-│   │   └── work-unit-commit.prompt.md   # Atomic commits under 400 lines
-│   └── skills/                          # Skills catalog accessible via Copilot context
+│   ├── copilot-instructions.md          # Reglas globales, contrato de respuesta y seguridad bancaria
+│   ├── prompts/                         # Archivos de prompt ejecutables en Copilot Chat
+│   │   ├── orchestrator.prompt.md       # Orquestador maestro de arquitectura y flujo
+│   │   ├── odd-spec.prompt.md           # Redactor de especificaciones de tareas ODD
+│   │   ├── tdd-cycle.prompt.md          # Ejecutor de TDD estricto (Rojo -> Verde -> Refactor)
+│   │   ├── review-4r.prompt.md          # Barrido de revisión 4R (Riesgo, Legibilidad, Confiabilidad, Resiliencia)
+│   │   ├── review-refuter.prompt.md     # Verificador adversarial de hallazgos críticos
+│   │   ├── banking-security.prompt.md   # Auditoría de seguridad bancaria y OWASP
+│   │   └── work-unit-commit.prompt.md   # Creación de commits atómicos bajo 400 líneas
+│   └── skills/                          # Catálogo de habilidades accesibles en Copilot
 ├── odd/
-│   ├── TEMPLATE.md                      # Template for feature specs & verification receipts
-│   ├── tasks/                           # Active feature specs
-│   └── evidence/                        # Review ledgers and test receipts
+│   ├── TEMPLATE.md                      # Plantilla estándar para especificaciones y recibos
+│   ├── tasks/                           # Tareas y especificaciones activas
+│   └── evidence/                        # Ledgers de revisión y recibos de pruebas
 ├── docs/
-│   ├── architecture.md                  # System architecture and design principles
-│   ├── banking-environment.md           # Banking security & airgap compliance guide
-│   ├── vscode-copilot-setup.md          # Step-by-step setup in VS Code
-│   ├── odd-workflow.md                  # ODD lifecycle manual
-│   └── review-receipts-guide.md         # 4R review framework & evidence ledger
-├── AGENTS.md                            # Comprehensive index of roles, prompts, and skills
+│   ├── architecture.md                  # Arquitectura del sistema y principios rectores
+│   ├── banking-environment.md           # Guía de cumplimiento y seguridad en redes bancarias
+│   ├── vscode-copilot-setup.md          # Guía paso a paso de configuración en VS Code
+│   ├── odd-workflow.md                  # Manual del ciclo de desarrollo ODD
+│   └── review-receipts-guide.md         # Modelo de revisión 4R y evidencias
+├── AGENTS.md                            # Índice integral de roles, prompts y habilidades
 └── README.md
 ```
 
 ---
 
-## 🚀 Quickstart
+## 🚀 Inicio Rápido
 
-1. Copy `.github/`, `odd/`, and `AGENTS.md` into your banking repository.
-2. Open the project in VS Code with GitHub Copilot enabled.
-3. Open GitHub Copilot Chat and type `/` to access the custom prompts:
-   - Run `/odd-spec` to define your feature.
-   - Run `/tdd-cycle` to develop with strict test-first discipline.
-   - Run `/review-4r` to generate a verifiable review ledger.
-   - Run `/banking-security` to audit against financial compliance.
-   - Run `/work-unit-commit` to generate clean Conventional Commits.
+1. Copiar las carpetas `.github/`, `odd/` y el archivo `AGENTS.md` a la raíz de tu proyecto bancario.
+2. Abrir el proyecto en VS Code con GitHub Copilot habilitado.
+3. Abrir GitHub Copilot Chat y escribir `/` para acceder a los prompts especializados:
+   - Ejecutar `/odd-spec` para definir la funcionalidad antes de programar.
+   - Ejecutar `/tdd-cycle` para implementar con disciplina de pruebas previas.
+   - Ejecutar `/review-4r` para auditar los cambios y generar un registro de evidencias.
+   - Ejecutar `/banking-security` para validar normas financieras y prevención de fugas de datos.
+   - Ejecutar `/work-unit-commit` para estructurar un commit convencional atómico.
 
 ---
 
-## 📚 Documentation
+## 📚 Documentación Técnica
 
-- [Architecture Overview](docs/architecture.md)
-- [Banking Compliance & Safety](docs/banking-environment.md)
-- [VS Code Copilot Setup Guide](docs/vscode-copilot-setup.md)
-- [ODD Workflow Manual](docs/odd-workflow.md)
-- [4R Review Framework](docs/review-receipts-guide.md)
+- [Visión General de Arquitectura](docs/architecture.md)
+- [Cumplimiento y Seguridad Bancaria](docs/banking-environment.md)
+- [Guía de Configuración en VS Code](docs/vscode-copilot-setup.md)
+- [Manual del Flujo ODD](docs/odd-workflow.md)
+- [Framework de Revisión 4R](docs/review-receipts-guide.md)

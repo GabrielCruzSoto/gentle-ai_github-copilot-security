@@ -1,10 +1,10 @@
-# 4R Review & Verification Receipts Guide
+# Guía de Revisión 4R y Recibos de Verificación
 
-## 1. Principles of Receipt-Driven Review
+## 1. Principios de la Revisión Basada en Evidencia
 
-In high-stakes enterprise and financial software, a code review must produce **falsifiable evidence**, not subjective opinions or superficial thumbs-up reactions.
+En sistemas corporativos y bancarios de alta criticidad, una revisión de código debe generar **evidencia falseable y comprobable**, no simples opiniones subjetivas o aprobaciones superficiales.
 
-Every change undergoes a structured review across four orthogonal lenses (the **4R Model**):
+Cada cambio se somete a cuatro perspectivas ortogonales (el **Modelo 4R**):
 
 ```
        ┌────────────────────────┐
@@ -13,39 +13,39 @@ Every change undergoes a structured review across four orthogonal lenses (the **
                    │
     ┌──────────────┼──────────────┬──────────────┐
     ▼              ▼              ▼              ▼
-[R1: Risk]   [R2: Readability] [R3: Reliability] [R4: Resilience]
+[R1: Riesgo]  [R2: Legibilidad] [R3: Confiabilidad] [R4: Resiliencia]
     │              │              │              │
     └──────────────┴──────┬───────┴──────────────┘
                           ▼
-            [Unified Findings Ledger]
+            [Registro Único de Hallazgos]
                           │
-                   (Blockers?)
-                  Yes /       \ No
+                  (¿Hay Bloqueadores?)
+                  Sí  /       \ No
                      /         \
-        [Adversarial Refuter]   [Clean Receipt]
+        [Refutador Adversarial] [Recibo Aprobado]
 ```
 
 ---
 
-## 2. The 4 Lenses
+## 2. Las 4 Perspectivas
 
-| Lens | Focus Areas | Key Failure Modes |
+| Perspectiva | Foco de Análisis | Fallos Principales que Detecta |
 |---|---|---|
-| **R1: Risk** | Security, OWASP, PII/PCI, authentication, authorization | Leaking secrets, SQL injection, missing tenant check |
-| **R2: Readability** | Cognitive load, naming, encapsulation, clean architecture | Spaghetti logic, deep nesting, misleading names |
-| **R3: Reliability** | Behavioral tests, determinism, edge cases, contracts | Untested behavior, race condition, missing null check |
-| **R4: Resilience** | Resource leaks, timeouts, fallbacks, fail-safe defaults | Unclosed handles, hanging requests, cascading crash |
+| **R1: Riesgo** | Seguridad, OWASP, PII/PCI, autenticación, autorización | Fuga de secretos, inyección SQL, omisión de permisos |
+| **R2: Legibilidad** | Carga cognitiva, nombres, encapsulamiento, arquitectura | Código espagueti, anidamientos profundos, nombres engañosos |
+| **R3: Confiabilidad** | Pruebas de comportamiento, determinismo, casos límite | Comportamiento sin probar, condiciones de carrera, nulos |
+| **R4: Resiliencia** | Fugas de recursos, timeouts, degradación controlada | Conexiones abiertas, bloqueos indefinidos, caída en cascada |
 
 ---
 
-## 3. Severity Levels & Adversarial Verification
+## 3. Niveles de Severidad y Verificación Adversarial
 
-- **BLOCKER**: Immediate safety, security, or data-integrity hazard. Merging is forbidden until resolved or refuted.
-- **CRITICAL**: Significant functional defect or missing contract test.
-- **WARNING**: Architectural smell or edge-case weakness that does not break core invariant.
-- **SUGGESTION**: Optional improvement or future optimization.
+- **BLOCKER**: Riesgo crítico de seguridad, corrupción o pérdida de datos. Prohibido fusionar hasta resolver o refutar.
+- **CRITICAL**: Defecto funcional severo o ausencia de pruebas de contrato.
+- **WARNING**: Oportunidad de mejora técnica que no quiebra invariantes centrales.
+- **SUGGESTION**: Sugerencia opcional o refinamiento futuro.
 
-### The Adversarial Refuter
-To prevent false-positive paralysis from AI reviewers, any `BLOCKER` or `CRITICAL` finding can be challenged by the **Review Refuter** (`/review-refuter`).
-- The Refuter searches for concrete evidence (e.g. existing upstream middleware, defensive type guarantees, existing tests) that proves the finding is invalid.
-- If refuted with proof, the finding is marked `Refuted` in the ledger and does not block delivery.
+### El Verificador Adversarial (Refuter)
+Para evitar falsos positivos que paralicen el desarrollo asistido por IA, cualquier hallazgo clasificado como `BLOCKER` o `CRITICAL` puede ser sometido al **Refutador** (`/review-refuter`).
+- El Refutador busca evidencia concreta en el código (middleware existente, garantías del tipado, pruebas preexistentes) que demuestre que el riesgo no es real.
+- Si se refuta con pruebas, el hallazgo se marca como `Refutado` en el registro y no bloquea la entrega.

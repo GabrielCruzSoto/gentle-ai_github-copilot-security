@@ -1,27 +1,27 @@
 ---
 name: cognitive-doc-design
-description: "Design documentation that minimizes cognitive load. Trigger: writing guides, READMEs, RFCs, architecture specs."
+description: "Diseñar documentación que minimice la carga cognitiva. Disparador: redactar guías, READMEs, RFCs y especificaciones técnicas."
 license: Apache-2.0
 metadata:
   author: gentle-ai-copilot
   version: "1.0"
 ---
 
-# Cognitive Doc Design Skill
+# Habilidad: Diseño Cognitivo de Documentación
 
-## When to Use
+## Cuándo Usar
 
-Load this skill when writing or editing technical documentation, PR descriptions, architecture guides, or task specifications.
+Cargar esta habilidad al redactar o actualizar documentación técnica, descripciones de PRs, guías de arquitectura o especificaciones de tareas.
 
-## Core Patterns
+## Patrones Clave
 
-1. **Lead with the Decision / Answer**:
-   - State the outcome, recommendation, or essential command first. Put background context and historical evolution second.
-2. **Tables over Walls of Text**:
-   - Use structured Markdown tables for component maps, configurations, and tradeoffs.
-3. **Mermaid Diagrams for Architecture**:
-   - Prefer concise Mermaid flowcharts or sequence diagrams over multi-paragraph descriptions of call stacks or data flows.
-4. **Scannable Hierarchy**:
-   - Use bold lead-ins for list items.
-   - Keep paragraphs under 3-4 sentences.
-   - Use code fences with explicit language identifiers.
+1. **Priorizar la Decisión o Respuesta**:
+   - Exponer el resultado, la recomendación o el comando esencial al inicio. Dejar los antecedentes y el contexto histórico para secciones posteriores.
+2. **Tablas sobre Bloques Densos de Texto**:
+   - Organizar componentes, configuraciones y comparativas técnicas mediante tablas Markdown estructuradas.
+3. **Diagramas Mermaid para Arquitectura**:
+   - Preferir diagramas de flujo o secuencias en Mermaid antes que descripciones de múltiples párrafos sobre llamadas o flujos de datos.
+4. **Jerarquía Escaneable**:
+   - Usar encabezados claros y negritas al inicio de elementos de lista.
+   - Limitar párrafos a un máximo de 3-4 oraciones.
+   - Especificar siempre el identificador de lenguaje en bloques de código.

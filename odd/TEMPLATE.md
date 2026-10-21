@@ -1,62 +1,62 @@
-# ODD Feature Specification: <Feature Name>
+# Especificación de Funcionalidad ODD: <Nombre de la Funcionalidad>
 
-- **Status**: `draft` | `in-progress` | `in-review` | `completed`
-- **Owner**: <Developer / Pair>
-- **Target Line Budget**: ≤ 400 changed lines
-- **Parent Ticket / Issue**: #<Issue-ID>
-
----
-
-## 1. Intent & Business Value
-
-### What problem are we solving?
-A concise description of the functional or architectural need.
-
-### Out of Scope (Non-Goals)
-Explicitly list what will NOT be addressed in this work unit.
+- **Estado**: `borrador` | `en-progreso` | `en-revision` | `completado`
+- **Responsable**: <Desarrollador / Pareja>
+- **Presupuesto de Líneas**: ≤ 400 líneas modificadas
+- **Tarea o Ticket Base**: #<ID-Issue>
 
 ---
 
-## 2. Architectural Design & Impact
+## 1. Intención y Valor de Negocio
 
-### Component / Module Boundaries
-- **Modified Interfaces / Types**:
-- **New Files**:
-- **Public Contract Changes**:
+### ¿Qué problema estamos resolviendo?
+Descripción concisa de la necesidad funcional o arquitectónica.
 
-### Banking Security Checklist
-- [ ] No PII/PCI leaked to logs or exceptions
-- [ ] Safe monetary math (no floating point)
-- [ ] Fail-closed authorization and validation
-- [ ] Idempotency addressed if mutation
+### Fuera de Alcance (No-Objetivos)
+Enumerar explícitamente lo que NO será abordado en esta unidad de trabajo.
 
 ---
 
-## 3. Acceptance Criteria & Negative Controls
+## 2. Diseño e Impacto Arquitectónico
 
-### Happy Path Expectations
-1. Given `<context>`, when `<action>`, then `<expected result>`.
+### Límites de Componentes y Módulos
+- **Interfaces / Tipos Modificados**:
+- **Nuevos Archivos**:
+- **Cambios en Contratos Públicos**:
 
-### Negative Control & Edge Cases
-1. Given `<invalid/empty input>`, when `<action>`, then `<expected error / rejection>`.
-2. Given `<timeout / upstream failure>`, when `<action>`, then `<graceful degradation>`.
-
----
-
-## 4. Execution Tasks (Strict TDD)
-
-- [ ] **Step 1 (Test First)**: Add failing behavioral test in `test/<module>.test.ts`
-- [ ] **Step 2 (Implementation)**: Minimal implementation in `src/<module>.ts`
-- [ ] **Step 3 (Refactor & Types)**: Clean up and strengthen interfaces
-- [ ] **Step 4 (Review)**: Run 4R review sweep (`/review-4r`) and log receipts
-- [ ] **Step 5 (Commit)**: Conventional commit (≤ 400 lines)
+### Lista de Verificación de Seguridad Bancaria
+- [ ] Cero datos PII/PCI en logs o excepciones
+- [ ] Matemática monetaria exacta (sin coma flotante)
+- [ ] Autorización y validación con falla segura por defecto (fail-closed)
+- [ ] Idempotencia implementada si es una mutación transaccional
 
 ---
 
-## 5. Verification Receipts & Evidence
+## 3. Criterios de Aceptación y Controles Negativos
 
-Link to the evidence ledger: `odd/evidence/<feature>-receipts.md`
+### Escenarios de Éxito (Camino Feliz)
+1. Dado `<contexto>`, cuando `<acción>`, entonces `<resultado esperado>`.
 
-- **Test Suite Command**: `npm test` / `pytest` / `go test ./...`
-- **Result**: `Passed (X tests, 0 failures)`
-- **Review Ledger**: `R1: Clean | R2: Clean | R3: Clean | R4: Clean`
+### Escenarios de Control Negativo y Casos Límite
+1. Dado `<entrada inválida o vacía>`, cuando `<acción>`, entonces `<error esperado / rechazo>`.
+2. Dado `<tiempo de espera / fallo externo>`, cuando `<acción>`, entonces `<degradación controlada>`.
+
+---
+
+## 4. Tareas de Ejecución (TDD Estricto)
+
+- [ ] **Paso 1 (Prueba Primero)**: Agregar prueba de comportamiento fallida en `test/<modulo>.test.ts`
+- [ ] **Paso 2 (Implementación)**: Implementación mínima en `src/<modulo>.ts`
+- [ ] **Paso 3 (Refactorización y Tipado)**: Limpiar diseño y robustecer contratos
+- [ ] **Paso 4 (Revisión)**: Ejecutar barrido de revisión 4R (`/review-4r`) y registrar recibos
+- [ ] **Paso 5 (Commit)**: Commit convencional atómico (≤ 400 líneas)
+
+---
+
+## 5. Recibos de Verificación y Evidencias
+
+Enlace al registro de evidencias: `odd/evidence/<funcionalidad>-recibos.md`
+
+- **Comando de Suite de Pruebas**: `npm test` / `pytest` / `go test ./...`
+- **Resultado**: `Superado (X pruebas, 0 fallos)`
+- **Ledger de Revisión**: `R1: Limpio | R2: Limpio | R3: Limpio | R4: Limpio`

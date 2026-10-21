@@ -1,35 +1,35 @@
-# AGENTS.md — Gentle AI Copilot Harness
+# AGENTS.md — Harnés de Gentle AI para Copilot
 
-## Overview
-This repository contains the **Gentle AI Copilot Harness**, specifically designed for enterprise and banking environments utilizing **VS Code + GitHub Copilot** with zero third-party external tools or daemons.
-
----
-
-## Copilot Roles & Prompt Index (`.github/prompts/`)
-
-| Prompt File | Role | Primary Trigger / Purpose |
-|---|---|---|
-| `orchestrator.prompt.md` | Master Orchestrator | End-to-end feature lifecycle, architecture coordination, work continuity |
-| `odd-spec.prompt.md` | ODD Spec Specialist | Creating/updating task specs in `odd/tasks/<feature>.md` |
-| `tdd-cycle.prompt.md` | Strict TDD Engineer | Enforcing the Red -> Green -> Refactor cycle |
-| `review-4r.prompt.md` | 4R Reviewer | Running Risk, Readability, Reliability, Resilience review sweeps |
-| `review-refuter.prompt.md` | Adversarial Refuter | Challenging and verifying blocker/critical review claims |
-| `banking-security.prompt.md` | Banking Security Auditor | OWASP Top 10, PII/PCI leakage prevention, financial safety invariants |
-| `work-unit-commit.prompt.md` | Work Unit Commit Specialist | Formatting atomic Conventional Commits under 400 lines |
+## Visión General
+Este repositorio alberga el **Harness de Gentle AI para Copilot**, diseñado específicamente para entornos corporativos y bancarios que utilizan **VS Code + GitHub Copilot** con cero herramientas o procesos residentes de terceros.
 
 ---
 
-## Skills Index (`skills/` & `.github/skills/`)
+## Índice de Roles y Prompts de Copilot (`.github/prompts/`)
 
-Before executing specific tasks, consult the matching skill:
-
-| Skill | Path | Activation Trigger |
+| Archivo de Prompt | Rol | Disparador y Propósito Principal |
 |---|---|---|
-| `work-unit-commits` | `skills/work-unit-commits/SKILL.md` | Sizing commits, conventional commits, packaging changes |
-| `branch-pr` | `skills/branch-pr/SKILL.md` | Creating branches, writing PR descriptions, audit traceability |
-| `chained-pr` | `skills/chained-pr/SKILL.md` | Slicing large features (>400 lines) into chained review PRs |
-| `cognitive-doc-design` | `skills/cognitive-doc-design/SKILL.md` | Writing scannable, high-density documentation and specs |
-| `comment-writer` | `skills/comment-writer/SKILL.md` | Writing in-code justification comments and review feedback |
-| `issue-root-resolution` | `skills/issue-root-resolution/SKILL.md` | Reproducing and fixing bugs at the structural root |
-| `systemic-issue-triage` | `skills/systemic-issue-triage/SKILL.md` | Clustering bug reports by invariant; preventing patch bloat |
-| `banking-security-audit` | `skills/banking-security-audit/SKILL.md` | Auditing payment/financial code, sensitive data handling |
+| `orchestrator.prompt.md` | Orquestador Maestro | Ciclo de vida completo de funcionalidades, coordinación arquitectónica y continuidad de trabajo |
+| `odd-spec.prompt.md` | Especialista en Especificaciones ODD | Creación y actualización de tareas en `odd/tasks/<funcionalidad>.md` |
+| `tdd-cycle.prompt.md` | Ingeniero de TDD Estricto | Aplicación rigurosa del ciclo Rojo -> Verde -> Refactorización |
+| `review-4r.prompt.md` | Revisor 4R | Barridos de revisión técnica bajo Riesgo, Legibilidad, Confiabilidad y Resiliencia |
+| `review-refuter.prompt.md` | Refutador Adversarial | Verificación e impugnación con pruebas de hallazgos críticos de revisión |
+| `banking-security.prompt.md` | Auditor de Seguridad Bancaria | OWASP Top 10, prevención de fuga de PII/PCI y reglas de seguridad financiera |
+| `work-unit-commit.prompt.md` | Especialista en Unidades de Trabajo | Formateo de commits convencionales atómicos bajo 400 líneas |
+
+---
+
+## Catálogo de Habilidades (`skills/` y `.github/skills/`)
+
+Antes de realizar tareas especializadas, consultar la habilidad correspondiente:
+
+| Habilidad | Ruta | Disparador de Activación |
+|---|---|---|
+| `work-unit-commits` | `skills/work-unit-commits/SKILL.md` | Dimensionamiento de commits, conventional commits, empaquetado de cambios |
+| `branch-pr` | `skills/branch-pr/SKILL.md` | Creación de ramas, redacción de PRs, trazabilidad de auditoría |
+| `chained-pr` | `skills/chained-pr/SKILL.md` | División de funcionalidades grandes (>400 líneas) en PRs encadenados |
+| `cognitive-doc-design` | `skills/cognitive-doc-design/SKILL.md` | Redacción de documentación técnica escaneable y de alta densidad |
+| `comment-writer` | `skills/comment-writer/SKILL.md` | Redacción de comentarios explicativos de arquitectura y feedback de revisión |
+| `issue-root-resolution` | `skills/issue-root-resolution/SKILL.md` | Reproducción y resolución de defectos en la causa raíz estructural |
+| `systemic-issue-triage` | `skills/systemic-issue-triage/SKILL.md` | Clasificación de errores por invariantes; prevención de acumulación de parches |
+| `banking-security-audit` | `skills/banking-security-audit/SKILL.md` | Auditoría de código financiero, pagos y tratamiento de datos sensibles |

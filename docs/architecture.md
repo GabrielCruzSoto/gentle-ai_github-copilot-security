@@ -1,12 +1,12 @@
-# Architecture: Gentle AI for GitHub Copilot
+# Arquitectura: Gentle AI para GitHub Copilot
 
-## 1. Overview & Core Philosophy
+## 1. Visión General y Filosofía Central
 
-**gentle-ai-copilot** adapts the proven principles of the Gentle AI ecosystem for corporate and banking environments where developers use **VS Code + GitHub Copilot** and external third-party tools, agents, or CLI daemons are restricted.
+**gentle-ai-copilot** adapta los principios contrastados del ecosistema Gentle AI para organizaciones y entidades bancarias donde los ingenieros utilizan **VS Code + GitHub Copilot** y las herramientas de terceros, agentes autónomos o daemons en línea de comandos están restringidos.
 
-Traditional agent harness platforms rely on external daemons, background MCP servers, and language-specific runtimes (Node, Python, Go) that frequently violate bank security baselines.
+Las plataformas de arnés de agentes convencionales dependen de procesos residentes en segundo plano, servidores MCP locales y dependencias en Node, Python o Go que frecuentemente infringen las normativas de seguridad de las entidades financieras.
 
-`gentle-ai-copilot` achieves the exact same architectural rigor using **100% native VS Code and GitHub Copilot configuration files and Git-backed Markdown artifacts**:
+`gentle-ai-copilot` consigue el mismo rigor arquitectónico utilizando de manera **100% nativa los archivos de configuración de VS Code y GitHub Copilot, junto con artefactos de Git y Markdown**:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -15,36 +15,36 @@ Traditional agent harness platforms rely on external daemons, background MCP ser
 │   ┌────────────────────────┐    ┌──────────────────────┐    │
 │   │ .github/copilot-       │    │ .github/prompts/     │    │
 │   │ instructions.md        │    │ *.prompt.md          │    │
-│   │ (Global Rules & Guard) │    │ (Specialized Agents) │    │
+│   │ (Reglas Globales)      │    │ (Agentes / Roles)    │    │
 │   └───────────┬────────────┘    └──────────┬───────────┘    │
 └───────────────┼────────────────────────────┼────────────────┘
                 │                            │
                 ▼                            ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                   Zero-External-Tool Harness                │
+│             Harness Sin Herramientas Externas               │
 │                                                             │
 │   odd/tasks/              odd/evidence/         skills/     │
-│   (ODD Task Specs)        (4R Review Ledgers)   (Skills)    │
+│   (Especificaciones ODD)  (Ledgers de Revisión) (Habilidades│
 └─────────────────────────────────────────────────────────────┘
 ```
 
-## 2. Core Pillars
+## 2. Pilares Fundamentales
 
-| Pillar | In Gentle AI CLI | In Gentle AI Copilot |
+| Pilar | En Gentle AI CLI | En Gentle AI Copilot |
 |---|---|---|
-| **Memory** | Engram daemon + SQLite MCP | Git history + `odd/tasks/` + in-repo task logs |
-| **Workflow** | ODD protocol via Go runtime | `.github/copilot-instructions.md` + `/odd-spec` + `/tdd-cycle` |
-| **Evidence** | `gentle-ai review` CLI receipts | `.github/prompts/review-4r.prompt.md` + `odd/evidence/*.md` |
-| **Security** | Runtime sandbox / permissions | Zero third-party binaries, airgap-ready, OWASP banking checks |
+| **Memoria** | Daemon Engram + MCP SQLite | Historial de Git + `odd/tasks/` + bitácoras en Markdown |
+| **Workflow** | Protocolo ODD vía binario en Go | `.github/copilot-instructions.md` + `/odd-spec` + `/tdd-cycle` |
+| **Evidencia** | Recibos generados por CLI | `.github/prompts/review-4r.prompt.md` + `odd/evidence/*.md` |
+| **Seguridad** | Aislamiento por sandbox | Cero ejecutables externos, compatible con redes aisladas |
 
-## 3. Specialized Copilot Agents / Prompts
+## 3. Prompts / Agentes Especializados de Copilot
 
-VS Code Prompt Files (`.github/prompts/*.prompt.md`) provide isolated, specialized personas callable directly in Copilot Chat:
+Los archivos de prompt de VS Code (`.github/prompts/*.prompt.md`) proporcionan roles especializados invocables directamente en Copilot Chat:
 
-1. **`orchestrator`**: The senior architect enforcing ODD, TDD, and work unit budgets.
-2. **`odd-spec`**: Generates and refines feature tasks before implementation.
-3. **`tdd-cycle`**: Guides the strict Red -> Green -> Refactor cycle.
-4. **`review-4r`**: Multi-lens reviewer (Risk, Readability, Reliability, Resilience).
-5. **`review-refuter`**: Adversarial counter-evidence verification of blocker findings.
-6. **`banking-security`**: Audits against OWASP, data leakage, and financial compliance.
-7. **`work-unit-commit`**: Packages changes into atomic commits under 400 lines.
+1. **`orchestrator`**: Arquitecto principal que coordina ODD, TDD y presupuesto de líneas.
+2. **`odd-spec`**: Generador y mantenedor de tareas antes de escribir código.
+3. **`tdd-cycle`**: Guía del ciclo estricto Rojo -> Verde -> Refactorización.
+4. **`review-4r`**: Revisor multidimensional (Riesgo, Legibilidad, Confiabilidad, Resiliencia).
+5. **`review-refuter`**: Verificador adversarial de hallazgos críticos con contra-evidencia.
+6. **`banking-security`**: Auditor de OWASP, fuga de datos y reglas financieras.
+7. **`work-unit-commit`**: Empaquetador de commits atómicos bajo 400 líneas.

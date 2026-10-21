@@ -1,24 +1,24 @@
 ---
 name: comment-writer
-description: "Write direct, respectful, technically grounded code and PR review comments. Trigger: code comments, review feedback."
+description: "Escribir comentarios de código y revisiones directos, respetuosos y sustentados técnicamente. Disparador: comentarios de código, feedback de PR."
 license: Apache-2.0
 metadata:
   author: gentle-ai-copilot
   version: "1.0"
 ---
 
-# Comment Writer Skill
+# Habilidad: Redacción de Comentarios Técnicos
 
-## When to Use
+## Cuándo Usar
 
-Load this skill when authoring code comments, PR review feedback, or issue discussions.
+Cargar esta habilidad al redactar comentarios en el código fuente, retroalimentación en revisiones de PRs o discusiones técnicas de tareas.
 
-## Principles
+## Principios Fundamentales
 
-1. **In-Code Comments**:
-   - Explain **WHY**, never WHAT. The code states what is happening; comments justify non-obvious business logic, bank regulatory constraints, or algorithmic subtleties.
-   - Maintain comment integrity: if modifying code, update or delete outdated comments immediately.
-2. **Review Feedback**:
-   - Provide concrete technical reasoning and specific line references.
-   - Separate objective defects (bugs, security risks, contract violations) from subjective style suggestions.
-   - Always suggest a concrete alternative or patch when flagging a problem.
+1. **Comentarios en el Código**:
+   - Explicar el **PORQUÉ**, nunca el QUÉ. El código ya describe lo que sucede; los comentarios deben justificar lógicas no evidentes, restricciones normativas bancarias o complejidades algorítmicas.
+   - Integridad de comentarios: al modificar código, actualizar o eliminar inmediatamente cualquier comentario que quede desfasado.
+2. **Retroalimentación en Revisiones**:
+   - Proporcionar argumentos técnicos concretos e indicar líneas de código precisas.
+   - Separar defectos objetivos (errores lógicos, vulnerabilidades de seguridad, violaciones de contrato) de sugerencias estilísticas subjetivas.
+   - Plantear siempre una alternativa viable o parche al señalar una disconformidad.

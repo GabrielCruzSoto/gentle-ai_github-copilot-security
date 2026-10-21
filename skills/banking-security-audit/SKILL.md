@@ -1,32 +1,32 @@
 ---
 name: banking-security-audit
-description: "Banking security standards, OWASP, PCI/PII data handling, audit trails, and zero-trust validations. Trigger: security audits, financial logic."
+description: "Estándares de seguridad bancaria, OWASP, tratamiento de datos PCI/PII, pistas de auditoría y confianza cero. Disparador: auditorías, lógica financiera."
 license: Apache-2.0
 metadata:
   author: gentle-ai-copilot
   version: "1.0"
 ---
 
-# Banking Security Audit Skill
+# Habilidad: Auditoría de Seguridad Bancaria
 
-## When to Use
+## Cuándo Usar
 
-Load this skill whenever authoring or reviewing code that interacts with:
-- Payment processing, financial ledgers, account balances, or transaction routing.
-- User authentication, session tokens, cryptographic signatures, or authorization grants.
-- Ingestion of untrusted external payloads or sensitive customer records.
+Cargar esta habilidad al desarrollar o auditar código vinculado con:
+- Procesamiento de pagos, libros contables, saldos de cuenta o enrutamiento de transacciones.
+- Autenticación de usuarios, tokens de sesión, firmas criptográficas o gestión de accesos.
+- Recepción de cargas externas no confiables o datos sensibles de clientes.
 
-## Essential Bank Compliance Invariants
+## Invariantes Esenciales de Seguridad Bancaria
 
-1. **Precision & Money Representation**:
-   - Never use floating point numbers (`float`, `double`) for monetary amounts.
-   - Use integer subunits (cents, satoshis) or arbitrary-precision decimal types (`BigDecimal`, `Decimal`).
-2. **Defensive Masking of Financial & Customer Data**:
-   - Mask PAN (Primary Account Number): show only last 4 digits (e.g. `**** **** **** 1234`).
-   - Never serialize or dump raw request bodies containing CVV, passwords, PINs, or national IDs into application logs or telemetry.
-3. **Idempotency**:
-   - Financial mutations (transfers, chargebacks, debits) must require an `Idempotency-Key` to protect against duplicate execution on network retry.
-4. **Tamper-Evident Audit Trails**:
-   - Every state change on customer assets must emit an immutable audit event recording: timestamp (UTC), operator/client identity, operation type, before/after checksum, and IP/source channel.
-5. **Fail-Closed Authorization**:
-   - If a permission check encounters an error, timeout, or unexpected response from an upstream identity provider, default to `DENY`.
+1. **Precisión Numérica y Representación Monetaria**:
+   - Queda terminantemente prohibido utilizar tipos de coma flotante (`float`, `double`) para importes de dinero.
+   - Utilizar unidades enteras mínimas (centavos) o tipos decimales de precisión arbitraria (`BigDecimal`, `Decimal`).
+2. **Enmascaramiento Defensivo de Datos Financieros y Personales**:
+   - Enmascarar números de tarjeta (PAN): mostrar únicamente los últimos cuatro dígitos (`**** **** **** 1234`).
+   - Jamás serializar ni volcar cuerpos de peticiones con códigos CVV, contraseñas, PINs o documentos de identidad en archivos de log o telemetría.
+3. **Idempotencia Transaccional**:
+   - Toda mutación financiera (transferencias, reversas, débitos) debe requerir una cabecera `Idempotency-Key` para evitar ejecuciones duplicadas por reintentos de red.
+4. **Pistas de Auditoría Inmutables**:
+   - Cada cambio de estado sobre activos financieros debe emitir un registro inmutable que contenga: marca temporal UTC, identidad del operador/cliente, tipo de operación, sumas de verificación y canal de origen.
+5. **Autorización con Cierre por Defecto (Fail-Closed)**:
+   - Ante cualquier excepción, timeout o respuesta no concluyente del proveedor de identidad, la decisión de autorización debe resolverse como `DENEGADA`.
