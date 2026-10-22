@@ -74,3 +74,11 @@ gentle-ai-copilot/
 - [Guía de Configuración en VS Code](docs/vscode-copilot-setup.md)
 - [Manual del Flujo ODD](docs/odd-workflow.md)
 - [Framework de Revisión 4R](docs/review-receipts-guide.md)
+
+---
+
+## 🙏 Créditos y Reconocimientos
+
+Este proyecto es una adaptación especializada inspirada y derivada de **[Gentle AI](https://github.com/Gentleman-Programming/gentle-ai)**, desarrollado y liderado por **[Gentleman Programming](https://github.com/Gentleman-Programming)**.
+
+Todos los conceptos clave — incluyendo el **Desarrollo Guiado Orgánico (ODD)**, el **Marco de Revisión 4R (Riesgo, Legibilidad, Confiabilidad, Resiliencia)**, la filosofía de **Recibos de Verificación** y los principios de **Conceptos sobre Código** — provienen del proyecto original Gentle AI. Esta adaptación traslada esa misma disciplina a entidades bancarias y corporativas con restricciones de software de terceros mediante configuraciones nativas y declarativas para VS Code y GitHub Copilot.
