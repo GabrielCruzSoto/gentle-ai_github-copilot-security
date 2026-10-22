@@ -74,3 +74,11 @@ gentle-ai-copilot/
 - [VS Code Copilot Setup Guide](docs/vscode-copilot-setup.md)
 - [ODD Workflow Manual](docs/odd-workflow.md)
 - [4R Review Framework](docs/review-receipts-guide.md)
+
+---
+
+## 🙏 Credits & Acknowledgements
+
+This project is a specialized adaptation inspired by and derived from **[Gentle AI](https://github.com/Gentleman-Programming/gentle-ai)**, an outstanding open-source deterministic harness for coding agents created and maintained by **[Gentleman Programming](https://github.com/Gentleman-Programming)**.
+
+All original architectural concepts — including **Organic Driven Development (ODD)**, the **4R Review Framework (Risk, Readability, Reliability, Resilience)**, **Verification Receipts**, and the **Senior Architect mindset (Concepts > Code)** — belong to the Gentle AI project. This repository exists to bring those exact same principles into restricted corporate banking environments utilizing purely declarative VS Code + GitHub Copilot configurations without external binaries or third-party daemons.

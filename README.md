@@ -60,3 +60,18 @@ gentle-ai-copilot/
 - **GitFlow & Protected Branches / GitFlow y Ramas Protegidas**: Direct commits or pushes to `prod`, `production`, `master`, `main`, and `develop` are strictly prohibited. All changes must be routed via Pull Requests.
 - **Organic Driven Development (ODD)**: Specifications in `odd/tasks/` before production code; strict Test-Driven Development (TDD).
 - **4R Review & Receipts / Revisión 4R y Evidencias**: Risk, Readability, Reliability, Resilience sweeps with adversarial refuters.
+
+---
+
+## 🙏 Credits & Acknowledgements / Créditos y Reconocimientos
+
+This project is a specialized adaptation inspired by and derived from **[Gentle AI](https://github.com/Gentleman-Programming/gentle-ai)**, an outstanding open-source deterministic harness for coding agents created and maintained by **[Gentleman Programming](https://github.com/Gentleman-Programming)**.
+
+All original architectural concepts — including **Organic Driven Development (ODD)**, the **4R Review Framework (Risk, Readability, Reliability, Resilience)**, **Verification Receipts**, and the **Senior Architect mindset (Concepts > Code)** — belong to the Gentle AI project. This repository exists to bring those exact same principles into restricted corporate banking environments utilizing purely declarative VS Code + GitHub Copilot configurations without external binaries or third-party daemons.
+
+---
+
+Este proyecto es una adaptación especializada inspirada y derivada de **[Gentle AI](https://github.com/Gentleman-Programming/gentle-ai)**, un extraordinario harness determinista de código abierto para agentes de desarrollo creado y mantenido por **[Gentleman Programming](https://github.com/Gentleman-Programming)**.
+
+Todos los conceptos arquitectónicos originales — incluyendo el **Desarrollo Guiado Orgánico (ODD)**, el **Modelo de Revisión 4R (Riesgo, Legibilidad, Confiabilidad, Resiliencia)**, los **Recibos de Verificación** y la filosofía de **Bases Sólidas y Conceptos sobre Código** — pertenecen al proyecto Gentle AI. Este repositorio adapta esa disciplina a entornos bancarios restringidos mediante configuraciones declarativas nativas para VS Code + GitHub Copilot sin requerir binarios externos ni daemons de terceros.
+
