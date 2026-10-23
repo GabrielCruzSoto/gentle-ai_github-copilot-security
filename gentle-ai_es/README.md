@@ -26,6 +26,14 @@ Cero instalaciones de software. Cero binarios ajenos. Cero alertas de seguridad.
 gentle-ai-copilot/
 ├── .github/
 │   ├── copilot-instructions.md          # Reglas globales, contrato de respuesta y seguridad bancaria
+│   ├── agents/                          # Subagentes nativos (.agent.md) con herramientas acotadas
+│   │   ├── review-risk.agent.md         # Subagente R1: seguridad, OWASP, PII/PCI
+│   │   ├── review-readability.agent.md  # Subagente R2: complejidad cognitiva, SRP
+│   │   ├── review-reliability.agent.md  # Subagente R3: determinismo, pruebas de contrato
+│   │   ├── review-resilience.agent.md   # Subagente R4: timeouts, fugas de recursos
+│   │   ├── review-refuter.agent.md      # Refutador adversarial de hallazgos críticos
+│   │   ├── banking-security.agent.md    # Auditor especializado en cumplimiento bancario
+│   │   └── jd-judge.agent.md            # Árbitro de Judgment Day para discrepancias
 │   ├── prompts/                         # Archivos de prompt ejecutables en Copilot Chat
 │   │   ├── orchestrator.prompt.md       # Orquestador maestro de arquitectura y flujo
 │   │   ├── odd-spec.prompt.md           # Redactor de especificaciones de tareas ODD

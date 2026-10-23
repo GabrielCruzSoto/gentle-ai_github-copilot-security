@@ -26,6 +26,14 @@ No installations. No external binaries. No security alarms.
 gentle-ai-copilot/
 ├── .github/
 │   ├── copilot-instructions.md          # Global rules, response contract, security invariants
+│   ├── agents/                          # Native subagents (.agent.md) with scoped toolsets
+│   │   ├── review-risk.agent.md         # R1 Risk subagent: security, OWASP, PII/PCI
+│   │   ├── review-readability.agent.md  # R2 Readability subagent: cognitive complexity, SRP
+│   │   ├── review-reliability.agent.md  # R3 Reliability subagent: determinism, contract tests
+│   │   ├── review-resilience.agent.md   # R4 Resilience subagent: timeouts, resource leaks
+│   │   ├── review-refuter.agent.md      # Adversarial verifier of critical findings
+│   │   ├── banking-security.agent.md    # Specialized banking compliance auditor
+│   │   └── jd-judge.agent.md            # Judgment Day arbitrator for reviewer deadlocks
 │   ├── prompts/                         # VS Code Copilot prompt files (custom roles)
 │   │   ├── orchestrator.prompt.md       # Master orchestrator
 │   │   ├── odd-spec.prompt.md           # Feature specification writer

@@ -14,7 +14,7 @@ Este repositorio proporciona el **Harness de Gentle AI para Copilot** empaquetad
 ```
 gentle-ai-copilot/
 ├── gentle-ai_es/      # Distribución completa en Español
-│   ├── .github/       # Instrucciones (.github/copilot-instructions.md), prompts y skills
+│   ├── .github/       # Instrucciones, subagentes nativos (.github/agents/), prompts y skills
 │   ├── docs/          # Guías de arquitectura, seguridad bancaria, GitFlow y ODD
 │   ├── odd/           # Plantillas ODD (Organic Driven Development), tareas y evidencias
 │   ├── skills/        # Catálogo de habilidades en Markdown
@@ -22,7 +22,7 @@ gentle-ai-copilot/
 │   └── README.md      # Documentación y guía de inicio rápido en español
 │
 ├── gentle-ai_en/      # Complete English Distribution
-│   ├── .github/       # Instructions (.github/copilot-instructions.md), prompts & skills
+│   ├── .github/       # Instructions, native subagents (.github/agents/), prompts & skills
 │   ├── docs/          # Architecture, banking security, GitFlow, and ODD guides
 │   ├── odd/           # ODD (Organic Driven Development) templates, tasks & evidence
 │   ├── skills/        # Markdown skills catalog
