@@ -19,6 +19,22 @@ Este repositorio alberga el **Harness de Gentle AI para Copilot**, diseñado esp
 
 ---
 
+## Subagentes Nativos de GitHub Copilot (`.github/agents/`)
+
+Copilot en VS Code detecta automáticamente estos subagentes en `.github/agents/*.agent.md`. Permiten delegación aislada en contextos independientes con herramientas acotadas:
+
+| Subagente | Archivo | Rol y Ámbito | Herramientas |
+|---|---|---|---|
+| `Revisor-Riesgo` | `review-risk.agent.md` | Subagente R1: seguridad, OWASP, PII/PCI, autorización | `read`, `search` |
+| `Revisor-Legibilidad` | `review-readability.agent.md` | Subagente R2: complejidad cognitiva, SRP, nombres limpios | `read`, `search` |
+| `Revisor-Confiabilidad` | `review-reliability.agent.md` | Subagente R3: pruebas de comportamiento, casos límite, determinismo | `read`, `search` |
+| `Revisor-Resiliencia` | `review-resilience.agent.md` | Subagente R4: timeouts, fugas de recursos, degradación elegante | `read`, `search` |
+| `Refutador-Revision` | `review-refuter.agent.md` | Verificador adversarial de hallazgos BLOCKER/CRITICAL | `read`, `search` |
+| `Auditor-Bancario` | `banking-security.agent.md` | Auditoría de normas financieras, matemáticas exactas y trazabilidad | `read`, `search` |
+| `Juez-Arbitro` | `jd-judge.agent.md` | Arbitraje de Judgment Day para dirimir discrepancias | `read`, `search` |
+
+---
+
 ## Catálogo de Habilidades (`skills/` y `.github/skills/`)
 
 Antes de realizar tareas especializadas, consultar la habilidad correspondiente:
