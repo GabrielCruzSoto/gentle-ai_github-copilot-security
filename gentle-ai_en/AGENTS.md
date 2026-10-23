@@ -19,6 +19,22 @@ This repository contains the **Gentle AI Copilot Harness**, specifically designe
 
 ---
 
+## Native GitHub Copilot Subagents (`.github/agents/`)
+
+Copilot in VS Code automatically discovers these subagents in `.github/agents/*.agent.md`. They enable delegated execution in isolated contexts with restricted toolsets:
+
+| Subagent | File | Role & Scope | Tools |
+|---|---|---|---|
+| `Review-Risk` | `review-risk.agent.md` | R1 Risk subagent: security, OWASP, PII/PCI, access control | `read`, `search` |
+| `Review-Readability` | `review-readability.agent.md` | R2 Readability subagent: cognitive complexity, SRP, clean naming | `read`, `search` |
+| `Review-Reliability` | `review-reliability.agent.md` | R3 Reliability subagent: behavior tests, boundary cases, determinism | `read`, `search` |
+| `Review-Resilience` | `review-resilience.agent.md` | R4 Resilience subagent: timeouts, resource leaks, graceful degradation | `read`, `search` |
+| `Review-Refuter` | `review-refuter.agent.md` | Adversarial verifier of BLOCKER/CRITICAL findings | `read`, `search` |
+| `Banking-Security` | `banking-security.agent.md` | Banking compliance audit, exact currency math, audit trails | `read`, `search` |
+| `Judgment-Day-Judge` | `jd-judge.agent.md` | Judgment Day arbitration to resolve reviewer deadlocks | `read`, `search` |
+
+---
+
 ## Skills Index (`skills/` & `.github/skills/`)
 
 Before executing specific tasks, consult the matching skill:
